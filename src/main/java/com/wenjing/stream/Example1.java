@@ -19,5 +19,6 @@ public class Example1 {
         List<String> strings = list.stream().filter(p -> p.contains("morning"))
                 .collect(Collectors.toList());
         System.out.println(strings);
+
     }
 }
