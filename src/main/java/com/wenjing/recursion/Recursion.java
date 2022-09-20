@@ -6,8 +6,14 @@ package com.wenjing.recursion;
  */
 public class Recursion {
     public static void main(String[] args) {
-        int sum = sum(100);
-        System.out.println(sum);
+
+        String s = "x";
+//        System.out.println(s.substring(s.length() - 1, s.length()));
+        System.out.println(s.substring(0, 0));
+        System.out.println(s.substring(0, 1));
+        System.out.println(s.substring(0, 0).equals(""));
+
+
     }
 
     /**
@@ -96,4 +102,73 @@ public class Recursion {
             }
         }
     }
+
+
+    /**
+     * Given base and n that are both 1 or more, compute recursively (no loops) the value of base to the n power, so powerN(3, 2) is 9 (3 squared).
+     * powerN(3, 1) → 3
+     * powerN(3, 2) → 9
+     * powerN(3, 3) → 27
+     * base * powerN(base, n - 1)
+     */
+    public int powerN(int base, int n) {
+        if (n == 1) {
+            return base;
+        } else {
+            return base * powerN(base, n - 1);
+        }
+    }
+
+
+    /**
+     * Given a string, compute recursively (no loops) the number of lowercase 'x' chars in the string.
+     * countX("xxhixx") → 4
+     * countX("xhixhix") → 3
+     * countX("hi") → 0
+     * <p>
+     * 1. length()
+     * 2. str.substring(str.length() - 1, str.length())
+     * 3. subString(0,0) return "" , subString(0,1) return "x"
+     */
+    public int countX(String str) {
+        if (str.length() == 0 || str.length() == 1 && !str.equals("x")) {
+            return 0;
+        } else {
+            if (str.substring(str.length() - 1, str.length()).equals("x")) {
+                return 1 + countX(str.substring(0, str.length() - 1));
+            } else {
+                return 0 + countX(str.substring(0, str.length() - 1));
+            }
+        }
+    }
+
+
+    /**
+     * Given a string, compute recursively (no loops) the number of times lowercase "hi" appears in the string.
+     * countHi("xxhixx") → 1
+     * countHi("xhixhix") → 2
+     * countHi("hi") → 1
+     */
+    public int countHi(String str) {
+        if (str.length() < 2 || str.length() == 2 && !str.equals("hi")) {
+            return 0;
+        } else {
+            if (str.substring(str.length() - 2, str.length()).equals("hi")) {
+                return 1 + countHi(str.substring(0, str.length() - 2));
+            } else {
+                return 0 + countHi(str.substring(0, str.length() - 1));
+            }
+        }
+    }
+
+    /**
+     * Given a string, compute recursively (no loops) a new string where all the lowercase 'x' chars have been changed to 'y' chars.
+     * changeXY(" codex ") → "codey"
+     * changeXY("xxhixx") → "yyhiyy"
+     * changeXY("xhixhix") → "yhiyhiy"
+     */
+//    public String changeXY(String str) {
+//
+//    }
+
 }
