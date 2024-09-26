@@ -14,10 +14,12 @@ public class Reverse {
         System.out.println(arr);
 
         List<String> list = new ArrayList<String>();
-        list.add("菜");
-        list.add("鸟");
-        list.add("教");
-        list.add("程");
+        list.add("r");
+        list.add("u");
+        list.add("n");
+        list.add("o");
+        list.add("o");
+        list.add("b");
         list.add("www.runoob.com");
 
         String[] arr2 = new String[list.size()];
