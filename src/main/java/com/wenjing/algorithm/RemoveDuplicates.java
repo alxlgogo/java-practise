@@ -1,12 +1,25 @@
 package com.wenjing.algorithm;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 public class RemoveDuplicates {
     public static void main(String[] args) {
         int[] nums = new int[]{0,0,1,1,1,2,2,3,3,4};
         removeDuplicates(nums);
+    }
+
+    public static int[] removeDuplicates2(int[] nums) {
+        HashSet<Integer> set = new HashSet<>();
+        for (int i = 0; i < nums.length; i++) {
+            set.add(nums[i]);
+        }
+        int[] newArr = new int[set.size()];
+        for (int i = 0; i < set.size(); i++) {
+            newArr[i] = i;
+        }
+        return newArr;
     }
 
     public static int removeDuplicates(int[] nums) {
